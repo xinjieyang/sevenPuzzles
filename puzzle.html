@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle</title>
+    <link rel="stylesheet" type="text/css" href="puzzle.css">
+    <script type="text/javascript" src="puzzle.js"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="game">
+            <div id="d1" onclick="move(1)"><img class="img" src="./images/1.jpg"></div>
+            <div id="d2" onclick="move(2)"><img class="img" src="./images/2.gif"></div>
+            <div id="d3" onclick="move(3)"><img class="img" src="./images/3.gif"></div>
+            <div id="d4" onclick="move(4)"><img class="img" src="./images/4.gif"></div>
+            <div id="d5" onclick="move(5)"><img class="img" src="./images/5.gif"></div>
+            <div id="d6" onclick="move(6)"><img class="img" src="./images/6.gif"></div>
+            <div id="d7" onclick="move(7)"><img class="img" src="./images/7.gif"></div>
+            <div id="d8" onclick="move(8)"><img class="img" src="./images/8.gif"></div>
+        </div>
+        <div id="control">
+            <p>
+                <rowspan id="timeText">时间：</rowspan>
+                <rowspan id="timer"></rowspan>
+            </p>
+            <p>
+                <button id="tell" class="b">玩法说明</button>
+                <button id="start" onclick="start()">暂停游戏</button>
+                <button id="reset" onclick="reset()">重新游戏</button>
+            </p>
+        </div>
+
+        <div id="outerdiv" style="display: none;text-align: center;">
+            <h2>点击【开始游戏】按钮后即可以进行拼图游戏</h2>
+            <h2>点击【暂停游戏】按钮后即可以停止计时器，暂停游戏</h2>
+            <h2>当点击黑色方块四周的拼图碎片时，碎片会移动到黑色方块的位置，请尝试拼出完整的图案</h2>
+            <h2>当您想重新开始时，可以点击【重新游戏】按钮</h2>
+            <h2>点击任何地方退出游戏说明</h2>
+        </div>
+    </div>
+    <img id="bg" src="./images/back.png" />
+</body>
+
+<script>
+    $(".b").click(function() {
+        $("#outerdiv").attr("display", "block");
+        $("#outerdiv").fadeIn("fast");
+        $("#outerdiv").click(function() { //再次点击淡出消失弹出层
+            $(this).fadeOut("fast");
+            document.getElementById("#outerdiv").style.display = "none";
+        });
+    })
+</script>
+
+</html>
